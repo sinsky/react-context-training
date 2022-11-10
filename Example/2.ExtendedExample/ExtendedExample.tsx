@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { currentUserContext, currentUserContext_success, useCurrentUserName, CurrentUserProvider } from "./context";
 import ErrorBoundary from "../../components/ErrorBoundary";
+import Case1Context from "./success/case1";
+import Case2Context from "./success/case2";
 
 /**
  * Extended Example
@@ -10,15 +12,7 @@ function EnthusasticGreeting() {
   return <p>HELLO {currentUser!.toUpperCase()}!</p>;
 }
 
-function EnthusasticGreeting1() {
-  const currentUser = useContext(currentUserContext_success);
-  return <div>HELLO {currentUser.toUpperCase()}!</div>;
-}
 
-function EnthusasticGreeting2() {
-  const currentUser = useCurrentUserName();
-  return <div>HELLO {currentUser.toUpperCase()}!</div>;
-}
 
 function App() {
   return (
@@ -37,19 +31,10 @@ function App() {
         </ErrorBoundary>
         <h3>Success Context</h3>
         <h4>case 1</h4>
-        <currentUserContext_success.Provider value="Anders">
-          <EnthusasticGreeting1 />
-        </currentUserContext_success.Provider>
+        <Case1Context />
         <h4>case 2</h4>
-        <CurrentUserProvider value="Anders">
-          <EnthusasticGreeting2 />
-        </CurrentUserProvider>
-        {/* 意図したエラー(自分でthrow Errorしているから) */}
-        <ErrorBoundary>
-          <CurrentUserProvider value={undefined}>
-            <EnthusasticGreeting2 />
-          </CurrentUserProvider>
-        </ErrorBoundary>
+        <Case2Context />
+        <h4>case 3</h4>
       </div>
     </>
   );
