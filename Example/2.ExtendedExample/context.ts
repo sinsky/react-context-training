@@ -4,10 +4,6 @@ export const currentUserContext = createContext<string | undefined>(undefined);
 
 export const currentUserContext_success = createContext<string>(undefined!);
 
-/**
- * A helper to create a Context and Provider with no upfront default value, and
- * without having to check for undefined all the time.
- */
 function createCtx<A extends {} | null>() {
   const ctx = createContext<A | undefined>(undefined);
   function useCtx() {
@@ -19,3 +15,6 @@ function createCtx<A extends {} | null>() {
 }
 
 export const [useCurrentUserName, CurrentUserProvider] = createCtx<string>();
+
+// case3
+export const [useCtx, SettingProvider] = createCtx<string>();

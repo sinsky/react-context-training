@@ -3,6 +3,7 @@ import { currentUserContext, currentUserContext_success, useCurrentUserName, Cur
 import ErrorBoundary from "../../components/ErrorBoundary";
 import Case1Context from "./success/case1";
 import Case2Context from "./success/case2";
+import Case3Context from "./success/case3";
 
 /**
  * Extended Example
@@ -35,6 +36,7 @@ function App() {
         <h4>case 2</h4>
         <Case2Context />
         <h4>case 3</h4>
+        <Case3Context />
       </div>
     </>
   );
