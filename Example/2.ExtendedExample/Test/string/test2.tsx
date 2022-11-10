@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ctx } from "../ExtendedExample";
+import { ctx } from "../../ExtendedExample";
 
 export default function () {
   const { state, update } = useContext(ctx);
