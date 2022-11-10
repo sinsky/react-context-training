@@ -4,7 +4,12 @@ import ErrorBoundary from "../../components/ErrorBoundary";
 import Case1Context from "./success/case1";
 import Case2Context from "./success/case2";
 import Case3Context from "./success/case3";
+import Case4Context, { createCtx } from "./success/case4";
+import Test1 from "./Test/test1";
+import Test2 from "./Test/test2";
+import Test3 from "./Test/test3";
 
+export const [ctx, TextProvider] = createCtx<string>("someText");
 /**
  * Extended Example
  */
@@ -12,8 +17,6 @@ function EnthusasticGreeting() {
   const currentUser = useContext(currentUserContext);
   return <p>HELLO {currentUser!.toUpperCase()}!</p>;
 }
-
-
 
 function App() {
   return (
@@ -37,7 +40,18 @@ function App() {
         <Case2Context />
         <h4>case 3</h4>
         <Case3Context />
+        <h4>case 4</h4>
+        <Case4Context />
       </div>
+      <h2>Try using case4.</h2>
+      <TextProvider>
+        <div style={{ marginLeft: "4rem" }}>
+          <Test1 />
+          <Test2 />
+          <Test3 />
+        </div>
+        <p style={{fontWeight: "bold"}}>You see how the text is changed at the same time in the provider, right?</p>
+      </TextProvider>
     </>
   );
 }
