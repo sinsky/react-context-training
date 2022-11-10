@@ -15,14 +15,14 @@ export default class ErrorBoundary extends Component<PropsWithChildren,{hasError
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    console.error(error);
+    console.warn(error);
     console.log(errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
       // You can render any custom fallback UI
-      return <div>Something went wrong.</div>;
+      return <div style={{ background: "pink", color: "darkmagenta",padding: "2rem"}}>Something went wrong.</div>;
     }
 
     return <>{this.props.children}</>;
