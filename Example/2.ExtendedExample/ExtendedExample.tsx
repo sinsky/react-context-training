@@ -8,8 +8,17 @@ import Case4Context, { createCtx } from "./success/case4";
 import StringTest1 from "./Test/string/test1";
 import StringTest2 from "./Test/string/test2";
 import StringTest3 from "./Test/string/test3";
+import ObjectTest1 from "./Test/object/test1";
+import ObjectTest2 from "./Test/object/test2";
+import ObjectTest3 from "./Test/object/test3";
 
 export const [ctx, TextProvider] = createCtx<string>("someText");
+
+type contextProps = {
+  name: string;
+  id: number;
+};
+export const [ctx2, ObjectProvider] = createCtx<contextProps>({ name: "", id: -1 });
 
 /**
  * Extended Example
@@ -51,8 +60,15 @@ function App() {
           <StringTest2 />
           <StringTest3 />
         </div>
-        <p style={{fontWeight: "bold"}}>You see how the text is changed at the same time in the provider, right?</p>
+        <p style={{ fontWeight: "bold" }}>You see how the text is changed at the same time in the provider, right?</p>
       </TextProvider>
+      <ObjectProvider>
+        <div style={{ marginLeft: "4rem" }}>
+          <ObjectTest1 />
+          <ObjectTest2 />
+          <ObjectTest3 />
+        </div>
+      </ObjectProvider>
     </>
   );
 }
